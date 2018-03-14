@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 
-while getopts ":u:" opt; do
+OM_IP=
+OM_USER=
+OM_PASS=
+
+while getopts "i:u:p:" opt; do
   case $opt in
-    a)
-      echo "-u was triggered, Parameter: $OPTARG" >&2
+    i)
+      OM_IP=$OPTARG
+      ;;
+    u)
+      OM_USER=$OPTARG
+      ;;
+    p)
+      OM_PASS=$OPTARG
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
@@ -15,5 +25,9 @@ while getopts ":u:" opt; do
       ;;
   esac
 done
+
+echo $OM_IP
+echo $OM_USER
+echo $OM_PASS
 
 #om --target https://<IP> --skip-ssl-validation --username <USER> --password <PASS> curl -p /api/v0/staged/products
