@@ -4,7 +4,7 @@ OM_IP=
 OM_USER=
 OM_PASS=
 
-while getopts "i:u:p:" opt; do
+while getopts ":i:u:p:" opt; do
   case $opt in
     i)
       OM_IP=$OPTARG
